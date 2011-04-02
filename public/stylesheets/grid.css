@@ -342,23 +342,23 @@ a img {
 }
 /* line 34, ../../views/css/pageDetails/_catalogo.sass */
 .bigGrid li.metalmecanica {
-  background-image: url(/images/catalogo_marca_soldadura.png);
+  background-image: url(/images/catalogo_marca_soldadura.jpg);
 }
 /* line 37, ../../views/css/pageDetails/_catalogo.sass */
 .bigGrid li.cerrajeria {
-  background-image: url(/images/catalogo_marca_yale.png);
+  background-image: url(/images/catalogo_marca_yale.jpg);
 }
 /* line 40, ../../views/css/pageDetails/_catalogo.sass */
 .bigGrid li.electrico {
-  background-image: url(/images/catalogo_marca_electrico.png);
+  background-image: url(/images/catalogo_marca_electrico.jpg);
 }
 /* line 43, ../../views/css/pageDetails/_catalogo.sass */
 .bigGrid li.ferreteria {
-  background-image: url(/images/catalogo_marca_ferreteria.png);
+  background-image: url(/images/catalogo_marca_ferreteria.jpg);
 }
 /* line 46, ../../views/css/pageDetails/_catalogo.sass */
 .bigGrid li.maderas {
-  background-image: url(/images/catalogo_marca_madera.png);
+  background-image: url(/images/catalogo_marca_madera.jpg);
 }
 /* line 49, ../../views/css/pageDetails/_catalogo.sass */
 .bigGrid ul {
