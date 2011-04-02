@@ -1,0 +1,71 @@
+#content
+	background-color: #FFF
+	background-image: url(/images/background_page.png)
+	min-height: 450px
+	padding-bottom: 25px 
+	width: 100%
+	overflow: hidden
+	.contentBox
+		border: 1px solid #999
+		@include box-shadow
+		padding: 15px
+		margin-top: 25px
+		background-color: #fff 
+		+clearfix
+		h2.title
+			color: #393A3A
+			font-family: 'Cabin',Arial
+			font-size: 38px
+			border-bottom: 9px solid #A82D2D
+			margin-bottom: 5px
+		h3.title
+			margin-top: 10px
+			color: #666
+			font-family: 'Cabin',Arial
+			font-size: 25px
+			border-bottom: 5px solid #999
+			margin-bottom: 5px
+
+		.colHolder
+			+clearfix
+			.col3
+				+grid-unit-base
+				+grid-width(5,9px)
+			.col2
+				+grid-unit-base
+				+grid-width(8,-16px)
+			
+		.contentFooter
+			border-top: 5px solid #999
+			margin-top: 10px
+			.button
+				margin-top: 5px
+				background-color: #fff
+				width: 100px
+				border-bottom: 4px $red solid
+				text-align: center
+				a
+					padding-left: 8px
+					padding-top: 7px
+					padding-bottom: 4px
+					color: #fff
+					background-color: $red
+					margin-bottom: 4px
+					display: block
+					text-decoration: none
+					
+					
+	.notification
+		background-color: #696969
+		margin-top: 15px
+		margin-bottom: 15px
+		text-align:center
+		p 
+			padding: 15px
+			font-size: 11px
+			color: #333
+			font-family: 'Cabin',Arial
+					
+
+
+ 

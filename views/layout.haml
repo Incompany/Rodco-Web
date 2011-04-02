@@ -1,0 +1,26 @@
+!!!Strict
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "es", 'xml:lang' => "es" }
+	%head
+		%title Rodco S.A.
+		%meta{'http-equiv'=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+		%meta{'http-equiv'=>"Content-Language", :content=>"en-us"}/
+		%link{:href=>"/stylesheets/grid.css", :media=>"screen", :rel=>"stylesheet", :type=>"text/css"}/
+		%script{ :src => "/js/jquery.min.js" }
+		%script{ :src => "/js/application.js" }
+		%body
+			.container
+				%ul#nav
+					= render_file('modules/nav')
+				#header.small
+					= render_file('modules/header')
+			#content
+				%img{:src=>"/images/background_page_top.png"}
+				.container
+					!= yield
+
+			#footer
+				.container
+					= render_file('modules/footer')
+			#copywrite
+				.container
+					%p Copyright © 2011. Rodco S.A. Todos los derechos reservados.
