@@ -376,6 +376,13 @@ a img {
   margin-top: 8px;
 }
 
+/* line 2, ../../views/css/pageDetails/_corporativo.sass */
+.corporativo p {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-family: Verdana;
+}
+
 /* line 2, ../../views/css/_lists.sass */
 .simpleList li {
   border-bottom: 1px #999999 dotted;
