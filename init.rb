@@ -3,7 +3,6 @@ require 'sinatra'
 require 'haml'
 require 'ninesixty'
 require 'json'
-require 'excelsior'
 require 'rforce'
 
 get '/' do
