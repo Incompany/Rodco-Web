@@ -1,0 +1,22 @@
+.contentBox
+
+	#loading
+		%img{:src=>"/images/ajax-loader.gif",:align =>"left"}
+		%h2.title Actualizando el Sistema
+		%h3 Por favor espere mientras descargamos la informacion de inventarios
+		
+		
+	#selectCliente
+		%h2.title Escoja el Nombre del Cliente
+		%h3 Ingrese parte del nombre de un cliente para mostrar un lista de posibilidades
+		%input{:value=>"",:onchange=>"doSearchClientes()",:id=>"txt_searchCliente"}
+		#clientesList
+
+	#doPedido
+		%h2#nombreDelCliente.title test
+		%h3 Ingrese parte del nombre de un cliente para mostrar un lista de posibilidades
+
+
+-['sammy', 'sammy.json', 'sammy.storage', 'sammy.template','app'].each do |js|
+	%script{:src => "/js/#{js}.js", :type => 'text/javascript', :charset => 'utf-8'}
+		

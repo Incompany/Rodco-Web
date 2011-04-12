@@ -11,7 +11,8 @@ get '/' do
 end
 
 get '/pedidos' do
- haml :pedidos
+     
+haml :pedidos
 end
 
 get '/corporativo' do
@@ -30,51 +31,32 @@ get '/contacto' do
  haml :contacto
 end
 
-get '/importCSV' do
-  content_type 'text/html', :charset => 'utf-8'
+ 
+
+get '/getdata' do
     ENV['SHOWSOAP'] = 'true'
+   binding = RForce::Binding.new \
+      'https://test.salesforce.com/services/Soap/u/21.0'
 
-      binding = RForce::Binding.new \
-         'https://www.salesforce.com/services/Soap/u/20.0'
+    binding.login \
+      'salesforce@rodcocr.com.test', 'company1'
 
-       binding.login \
-         'salesforce@rodcocr.com', 'company1'
-   
-   rows = []
-   
-   
-    Excelsior::Reader.rows(File.open('/Users/roberto/Proyectos/Rodco/svn/ruby/web/public/productos.csv', 'rb')) do |row|
-     rows << row
-   end
+      records = [];
 
+    answer = binding.query  \
+      :queryString =>
+        'select name,id from producto__c limit 5'
 
-    productos=[]
-    rows.each do |producto|
-      producto = {:type,'Producto__c',:CodigoExterno__c,    producto[0], :NombreWeb__c,      producto[1] , 'descripcion__c' , producto[2] }
+    records += answer.queryResponse.result.records
+         
+    answer = binding.query  \
+    :queryString =>
+      'select name,Id from cliente__c limit 5'
+            
+    records += answer.queryResponse.result.records
     
-      productos.push(producto)
-    end
-      
-      
-        while productos.length > 0
-          upsert = [];
-          upsert.push(:externalIDFieldName,'CodigoExterno__c');
-          while upsert.length < 390  && productos.length > 0
-            upsert.push(:sObjects)
-            upsert.push(productos.pop)
-          end
-          binding.upsert upsert
-        end
-        
-        
-      
-     
-           
-   
- 
-
- 
-end
+    return records.to_json
+  end
 
 def render_file(filename)
   contents = File.read('views/'+filename+'.haml')
