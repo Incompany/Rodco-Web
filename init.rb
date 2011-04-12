@@ -5,6 +5,8 @@ require 'ninesixty'
 require 'json'
 require 'rforce'
 
+
+
 get '/' do
  haml :index,{:layout => :homeLayout}
 end
@@ -33,7 +35,7 @@ end
  
 
 get '/getdata' do
-    ENV['SHOWSOAP'] = 'true'
+  
    binding = RForce::Binding.new \
       'https://test.salesforce.com/services/Soap/u/21.0'
 
