@@ -1,0 +1,33 @@
+.contentBox
+	.title Titulo
+	.layout_half
+		.col
+			.subTitle Subitulo en col2
+			%p Contamos con mas de 15 años en el mercado, 400 clientes en todo el territorio nacional y una cartera de 500 productos de las mas alta calidad importados directamente desde Europa, Centro-Sur America y Asia;
+			  
+		.col
+			%p Contamos con mas de 15 años en el mercado, 400 clientes en todo el territorio nacional y una cartera de 500 productos de las mas alta calidad importados directamente desde Europa, Centro-Sur America y Asia;
+	
+	.contentFooter
+		.button
+			%a{:href=>"#"} Ir Arriba
+
+.contentBox
+	.title Productos
+	.breadcrum
+		Usted esta aqui
+		%a{:href=>"#"} Link
+		%a{:href=>"#"} Link
+		%a{:href=>"#"} Link
+		%a{:href=>"#"} Link
+	
+	.section 
+		Tipo de Producto
+	%ul#catalog_product_list
+		- ul = (1...14)
+		- ul.each do |li|
+			%li
+				.body
+					%a.nombre{:href=>"#"} sdsdsfs fsdf
+				.footer dsds d
+		

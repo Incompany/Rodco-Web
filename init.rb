@@ -4,7 +4,7 @@ require 'haml'
 require 'ninesixty'
 require 'json'
 require 'rforce'
-
+require 'net/http'
 
 
 get '/' do
@@ -32,21 +32,38 @@ get '/contacto' do
  haml :contacto
 end
 
- 
+get '/styles' do
+ haml :styles
+end
+
 
 get '/getdata' do
+  ENV['SHOWSOAP'] = 'true'
+  
+  
+  
+  begin
+     Net::HTTP.get 'www.google.com', '/'
+  rescue
+    return [404, {}, []]
+  end
+  
+  email = params['username']
+  password = params['password']
+  token = params['token']
+  secure = password + token
   
    binding = RForce::Binding.new \
       'https://test.salesforce.com/services/Soap/u/21.0'
-
+      
     binding.login \
-      'salesforce@rodcocr.com.test', 'company1'
+      email, secure
 
       records = [];
 
     answer = binding.query  \
       :queryString =>
-        'select name,id from producto__c limit 5'
+        'select name,id,PrecioMinimo__c from producto__c limit 5'
 
     records += answer.queryResponse.result.records
          

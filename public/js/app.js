@@ -6,11 +6,17 @@ var map_clientes=[];
 var productos=[];
 var oportunidades=[];
 var currentClienteId='';
+var username='';
+var password='';
+var token='';
+
 
 function hideAllDivs(){
 	$('#loading').hide();
+	$('#login').hide();
 	$('#selectCliente').hide();
 	$('#doPedido').hide();
+	$('#txt_searchCliente,#txt_searchProducto').val='';
 }
 
 function doSearchClientes(){
@@ -20,7 +26,7 @@ function doSearchClientes(){
 	while(count > -1){
 		var cliente = clientes[count];
 		var res = cliente.Name.toLowerCase().search(currentVal.toLowerCase());
-		if(res>0){
+		if(res>-1){
 			results.push(cliente);
 		}
 		count--;
@@ -28,19 +34,45 @@ function doSearchClientes(){
 		app.trigger('doShowClienteSearchResult',{results: results});
 }
 	
+	function doSearchProductos(){
+		var currentVal = $('#txt_searchProducto').val();
+		var results=[];
+		var count = productos.length -1;
+		while(count > -1){
+			var producto = productos[count];
+			var res = producto.Name.toLowerCase().search(currentVal.toLowerCase());
+			if(res>-1){
+				results.push(producto);
+			}
+			count--;
+		}
+			app.trigger('doShowProductoSearchResult',{results: results});
+	}
+ 
+	
 	$(document).ready(function(){
 		app = $.sammy('body', function() {
 		this.use(Sammy.JSON);
 		this.use(Sammy.Storage); 
-	 this.use(Sammy.Template, 'erb');   
+		this.use(Sammy.Template, 'erb');   
 		this.debug = true;
-		this.bind('refresh',function(){	
-		alert('ok');
-		});
+	
+		///////////////////////////////
+		///////// ROUTES
+		//////////////////////////////////
+	
+			this.get('#login/',function(){	
+				hideAllDivs();
+			var context = this;
+				$('#login').show();
+				$('#btn_login').click(function(){
+					context.trigger('handleLogin');
+				});
+			});
 		
-		this.get('#/',function(){	
+		this.get('#loading/',function(){	
 			hideAllDivs();
-				$('#loading').show();
+			$('#loading').show();
 		});
 		
 			this.get('#selectCliente',function(){		 
@@ -55,22 +87,73 @@ function doSearchClientes(){
 		});
 
 			this.get('#doPedido/',function(){	
+				var context = this;
 				hideAllDivs();
 				$('#doPedido').show();
 				var cliente = map_clientes[currentClienteId];
 				$('#nombreDelCliente').html(cliente.Name);
+				$('#btn_restart_pedido').click(function(){
+						context.redirect('#selectCliente/');
+				});
 			});
 	
+	
+	
+				///////////////////////////////
+				///////// EVENTS
+				//////////////////////////////////
+
+		////////////////////////
+		////////// LOGIN EVENTS
+		
+		this.bind('handleLogin',function(){
+		var context = this;
+			username = $('#txt_username').val();
+			password = $('#txt_password').val();
+			token = $('#txt_token').val();
+			
+			store.set('username',username);
+			store.set('password',password);
+			store.set('token',token);
+			
+			context.trigger('loadRemoteData');
+			context.redirect('#loading/');
+			
+		});
+
+		this.bind('handleLoginError',function(e,data){
+			var context = this;
+			var re = data['request'];
+			if(re.status==500){
+				$('#txt_username').val(username);
+				$('#txt_password').val(password);
+				$('#txt_token').val(token);
+				alert('Error haciendo login');
+				context.redirect('#login/');
+			}
+			else if(re.status==404){
+				//alert('Trabajando Off-Line');
+				context.trigger('loadLocalData');	
+			}
+		
+		});
+
+		////////////////////////
+		////////// DATA LOADING EVENTS
 
 		this.bind('loadRemoteData',function(){  	
+			var query = 'username=' + username + '&password=' + password + '&token='+token;
 			var context = this;
 				$.ajax({
 					url: "/getdata",
+					type:"GET",
+					data: query ,
 					context: document.body,
 					success: function(data){
 						context.trigger('saveRemoteData',{all: data});
 					},
-					error: function() {context.trigger('loadLocalData'); 
+					error: function(re,text,error) {
+						context.trigger('handleLoginError',{request: re , text: text , error: error}); 
 					}
 				});
 		})
@@ -88,8 +171,7 @@ function doSearchClientes(){
 				else{
 					productos.push(t);
 				}
-				count--;
-			
+				count--;		
 			}
 			
 			store.set('productos', productos);
@@ -112,24 +194,53 @@ function doSearchClientes(){
 			context.redirect('#selectCliente');
 		});
 
+
+		////////////////////////
+		////////// SEARCH EVENTS
+
 		this.bind('doShowClienteSearchResult', function(e, data) {
 			var context = this;
-			clientes = data['results']
-			$.each(clientes, function(i, item) {
+			tempclientes = data['results']
+			$('#clientesList').html(' ');
+			$.each(tempclientes, function(i, item) {
 					context.partial('/templates/cliente.html.erb', {item: item}, function(html) {
-						$('#clientesList').html(html);
+						$('#clientesList').append(html);
 					});
 	    });
 		});
+		
+		this.bind('doShowProductoSearchResult', function(e, data) {
+			var context = this;
+			tempproductos = data['results']
+				$('#productosList').html(' ');
+			$.each(tempproductos, function(i, item) {
+					context.partial('/templates/producto.html.erb', {item: item}, function(html) {
+						
+						$('#productosList').append(html);
+					});
+	    });
+		});
+		
+		////////////////////////
+		////////// APP EVENTS
 		
 		this.bind('run', function() {
 			var context = this;
 			store = new Sammy.Store({name: 'rodco-facturacion', element: 'body', type: 'local'});
 			cart = new Sammy.Store({name: 'rodco-cart', element: 'body', type: 'session'});
-			hideAllDivs();
- 
-			context.trigger('loadRemoteData');
-			context.redirect('#/');
+		
+			if(store.get('username')==null){
+				context.redirect('#login/');
+			}
+			else{
+				username = store.get('username');
+				password = store.get('password');
+				token = store.get('token');
+				context.trigger('loadRemoteData');
+				context.redirect('#loading/');
+			}
+			 
+		
 		});
 		
 	});

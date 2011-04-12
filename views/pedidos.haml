@@ -1,20 +1,42 @@
 .contentBox
 
+	#login
+		%h2.title Login al Sistema
+		%h3 Ingrese al sistema con sus credenciales
+		%h4.label Usuario 
+		%input{:value=>"integration@rodcocr.com.test",:id=>"txt_username",:type=>"text"}
+		%h4.label Clave
+		%input{:value=>"company1",:id=>"txt_password",:type=>"password"}
+		%h4.label Seguridad
+		%input{:value=>"bYd3nuKDhYuUYOuJA0Di7clmi",:id=>"txt_token",:type=>"text"}
+		%h5 
+			%a{:href=>"/help?tag=security"} como obtener el token?
+		%a.button{:href=>"#",:id=>"btn_login"} Login
 	#loading
 		%img{:src=>"/images/ajax-loader.gif",:align =>"left"}
 		%h2.title Actualizando el Sistema
 		%h3 Por favor espere mientras descargamos la informacion de inventarios
 		
-		
 	#selectCliente
 		%h2.title Escoja el Nombre del Cliente
 		%h3 Ingrese parte del nombre de un cliente para mostrar un lista de posibilidades
 		%input{:value=>"",:onchange=>"doSearchClientes()",:id=>"txt_searchCliente"}
-		#clientesList
+		%ul#clientesList
 
 	#doPedido
-		%h2#nombreDelCliente.title test
+		%h2.title #nombreDelCliente
 		%h3 Escoja los productos a ingresar en el pedido
+		.layout_third
+			.left
+				%h2 Busqueda de Productos
+				%input{:value=>"",:onchange=>"doSearchProductos()",:id=>"txt_searchProducto",:type=>"text"}		
+				%ul#productosList
+				.center
+				%h2 Productos del Pedido
+				.right
+				dsf ds
+		
+		
 
 
 -['sammy', 'sammy.json', 'sammy.storage', 'sammy.template','app'].each do |js|

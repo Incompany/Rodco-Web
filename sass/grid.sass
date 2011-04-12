@@ -1,0 +1,92 @@
+@import base
+
+.container
+	+grid-container
+	+clearfix
+ 
+	#nav,#header,#content,#footer
+		+grid-unit-base
+		+grid-width(16,0px)
+		+clearfix
+
+#content
+	background-color: #FFF
+	background-image: url(/images/background_page.png)
+	min-height: 450px
+	padding-bottom: 25px 
+	width: 100%
+	overflow: hidden
+	
+	.contentBox
+		border: 1px solid #999
+		@include box-shadow
+		padding: 15px
+		margin-top: 25px
+		background-color: #fff 
+		+clearfix
+	 
+		.layout_half
+			+clearfix
+			.col
+				+grid-unit-base
+				+grid-width(8,-16px)
+
+		.layout_third
+			+clearfix
+			.left
+				+grid-unit-base
+				+grid-width(4,-3px)
+				+alpha
+			.center
+				+grid-unit-base
+				+grid-width(9,-3px)
+			.right
+				+grid-unit-base
+				+grid-width(3,-3px)
+				+omega
+
+		.contentFooter
+			border-top: 5px solid #999
+			margin-top: 10px
+
+#footer
+	background-color: $blue
+	#logo
+		+grid(5)
+		img
+			padding: 15px 15px 0px 0px
+	#contacto
+		+grid(7)
+		text-align: right
+		span
+			display: block
+			margin-top: 30px
+			border-right: $turk 1px solid
+			font-size: 30px
+			color: #fff
+			padding-right: 8px
+	#smallnav
+		+grid(7)
+#copywrite
+	background-color: $red
+	height: 20px
+	p
+		color: #fff
+		font-size: 10px
+		+grid(16)
+		padding-top: 4px
+
+
+	.notification
+		background-color: #696969
+		margin-top: 15px
+		margin-bottom: 15px
+		text-align:center
+		p 
+			padding: 15px
+			font-size: 11px
+			color: #333
+			font-family: 'Cabin',Arial
+
+
+

@@ -58,51 +58,80 @@ a img {
   border: none;
 }
 
-/* line 1, ../../views/css/modules/_footer.sass */
-#footer {
-  background-color: #18456d;
-  height: 55px;
+/* line 1, ../../sass/_buttons.sass */
+.button {
+  margin-top: 5px;
+  background-color: white;
+  width: 100px;
+  border-bottom: 4px #a82d2d solid;
+  text-align: center;
 }
-/* line 4, ../../views/css/modules/_footer.sass */
-#footer #logo {
-  display: inline;
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 236px;
-}
-/* line 6, ../../views/css/modules/_footer.sass */
-#footer #contacto {
-  display: inline;
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 236px;
-}
-/* line 8, ../../views/css/modules/_footer.sass */
-#footer #nav {
-  display: inline;
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 284px;
-}
-
-/* line 10, ../../views/css/modules/_footer.sass */
-#copywrite {
+/* line 7, ../../sass/_buttons.sass */
+.button a {
+  padding-left: 8px;
+  padding-top: 7px;
+  padding-bottom: 4px;
+  color: white;
   background-color: #a82d2d;
-  height: 20px;
-}
-/* line 13, ../../views/css/modules/_footer.sass */
-#copywrite p {
-  display: inline;
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 764px;
+  margin-bottom: 4px;
+  display: block;
+  text-decoration: none;
 }
 
-/* line 4, ../../views/css/modules/_nav.sass */
+/* line 1, ../../sass/_styles.sass */
+.title {
+  color: #393a3a;
+  font-family: "Cabin", Arial;
+  font-size: 38px;
+  border-bottom: 9px solid #a82d2d;
+  margin-bottom: 5px;
+}
+
+/* line 8, ../../sass/_styles.sass */
+.subTitle {
+  margin-top: 10px;
+  color: #666666;
+  font-family: "Cabin", Arial;
+  font-size: 25px;
+  border-bottom: 5px solid #999999;
+  margin-bottom: 5px;
+}
+
+/* line 16, ../../sass/_styles.sass */
+.section {
+  color: white;
+  font-family: "Cabin", Arial;
+  font-size: 20px;
+  border-bottom: 4px solid #a82d2d;
+  background-color: #18456d;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+/* line 25, ../../sass/_styles.sass */
+.breadcrum {
+  margin-top: 10px;
+  color: #666666;
+  font-family: "Cabin", Arial;
+  font-size: 25px;
+  border-bottom: 2px solid #999999;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+/* line 33, ../../sass/_styles.sass */
+.breadcrum a {
+  color: #18456d;
+  display: inline;
+}
+
+/* line 37, ../../sass/_styles.sass */
+p {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-family: Verdana;
+}
+
+/* line 4, ../../sass/modules/_nav.sass */
 #nav li {
   display: inline;
   float: left;
@@ -119,11 +148,11 @@ a img {
   background-color: white;
   border-bottom: 4px #18456d solid;
 }
-/* line 16, ../../views/css/modules/_nav.sass */
+/* line 16, ../../sass/modules/_nav.sass */
 #nav li.last {
   margin-right: 0px;
 }
-/* line 18, ../../views/css/modules/_nav.sass */
+/* line 18, ../../sass/modules/_nav.sass */
 #nav li a {
   text-align: center;
   color: white;
@@ -136,7 +165,39 @@ a img {
   text-transform: uppercase;
 }
 
-/* line 2, ../../views/css/modules/_header.sass */
+/* line 30, ../../sass/modules/_nav.sass */
+#smallnav li {
+  margin-top: 40px;
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-right: 7px;
+  text-align: center;
+  padding-bottom: 5px;
+  margin-bottom: 3px;
+  color: #3c6b8e;
+}
+/* line 40, ../../sass/modules/_nav.sass */
+#smallnav li a {
+  text-align: center;
+  color: #3c6b8e;
+  font-size: 10px;
+  background-color: #18456d;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-right: 1px #3c6b8e solid;
+  padding-right: 6px;
+}
+/* line 50, ../../sass/modules/_nav.sass */
+#smallnav li.last {
+  display: none;
+}
+
+/* line 2, ../../sass/modules/_header.sass */
 #header div.image {
   display: inline;
   float: left;
@@ -145,7 +206,7 @@ a img {
   width: 380px;
   margin-top: 15px;
 }
-/* line 5, ../../views/css/modules/_header.sass */
+/* line 5, ../../sass/modules/_header.sass */
 #header div.content {
   display: inline;
   float: left;
@@ -153,8 +214,8 @@ a img {
   margin-right: 10px;
   width: 380px;
 }
-/* line 7, ../../views/css/modules/_header.sass */
-#header div.content h2 {
+/* line 7, ../../sass/modules/_header.sass */
+#header div.content .slogan {
   margin-top: 45px;
   font-family: "Cabin", Arial;
   font-weight: 400;
@@ -164,8 +225,8 @@ a img {
   width: 500px;
   letter-spacing: 0.2em;
 }
-/* line 16, ../../views/css/modules/_header.sass */
-#header div.content h3 {
+/* line 16, ../../sass/modules/_header.sass */
+#header div.content .contact {
   color: #393a3a;
   font-family: "Cabin", Arial;
   font-size: 20px;
@@ -179,128 +240,30 @@ a img {
   width: 500px;
 }
 
-/* line 29, ../../views/css/modules/_header.sass */
+/* line 29, ../../sass/modules/_header.sass */
 #header.small div.image {
   margin-top: 8px;
 }
-/* line 31, ../../views/css/modules/_header.sass */
+/* line 31, ../../sass/modules/_header.sass */
 #header.small div.image img {
   width: 260px;
   height: 100px;
 }
-/* line 35, ../../views/css/modules/_header.sass */
-#header.small div.content h2 {
+/* line 35, ../../sass/modules/_header.sass */
+#header.small div.content .slogan {
   font-size: 15px;
   margin-top: 20px;
 }
-/* line 38, ../../views/css/modules/_header.sass */
-#header.small div.content h3 {
+/* line 38, ../../sass/modules/_header.sass */
+#header.small div.content .contact {
   font-size: 12px;
 }
 
-/* line 1, ../../views/css/modules/_content.sass */
-#content {
-  background-color: white;
-  background-image: url(/images/background_page.png);
-  min-height: 450px;
-  padding-bottom: 25px;
-  width: 100%;
-  overflow: hidden;
-}
-/* line 8, ../../views/css/modules/_content.sass */
-#content .contentBox {
-  border: 1px solid #999999;
-  -moz-box-shadow: #333333 1px 1px 5px 0;
-  -webkit-box-shadow: #333333 1px 1px 5px 0;
-  -o-box-shadow: #333333 1px 1px 5px 0;
-  box-shadow: #333333 1px 1px 5px 0;
-  padding: 15px;
-  margin-top: 25px;
-  background-color: white;
-  overflow: hidden;
-  *zoom: 1;
-}
-/* line 15, ../../views/css/modules/_content.sass */
-#content .contentBox h2.title {
-  color: #393a3a;
-  font-family: "Cabin", Arial;
-  font-size: 38px;
-  border-bottom: 9px solid #a82d2d;
-  margin-bottom: 5px;
-}
-/* line 21, ../../views/css/modules/_content.sass */
-#content .contentBox h3.title {
-  margin-top: 10px;
-  color: #666666;
-  font-family: "Cabin", Arial;
-  font-size: 25px;
-  border-bottom: 5px solid #999999;
-  margin-bottom: 5px;
-}
-/* line 29, ../../views/css/modules/_content.sass */
-#content .contentBox .colHolder {
-  overflow: hidden;
-  *zoom: 1;
-}
-/* line 31, ../../views/css/modules/_content.sass */
-#content .contentBox .colHolder .col3 {
-  display: inline;
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 289px;
-}
-/* line 34, ../../views/css/modules/_content.sass */
-#content .contentBox .colHolder .col2 {
-  display: inline;
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 444px;
-}
-/* line 38, ../../views/css/modules/_content.sass */
-#content .contentBox .contentFooter {
-  border-top: 5px solid #999999;
-  margin-top: 10px;
-}
-/* line 41, ../../views/css/modules/_content.sass */
-#content .contentBox .contentFooter .button {
-  margin-top: 5px;
-  background-color: white;
-  width: 100px;
-  border-bottom: 4px #a82d2d solid;
-  text-align: center;
-}
-/* line 47, ../../views/css/modules/_content.sass */
-#content .contentBox .contentFooter .button a {
-  padding-left: 8px;
-  padding-top: 7px;
-  padding-bottom: 4px;
-  color: white;
-  background-color: #a82d2d;
-  margin-bottom: 4px;
-  display: block;
-  text-decoration: none;
-}
-/* line 58, ../../views/css/modules/_content.sass */
-#content .notification {
-  background-color: #696969;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-/* line 63, ../../views/css/modules/_content.sass */
-#content .notification p {
-  padding: 15px;
-  font-size: 11px;
-  color: #333333;
-  font-family: "Cabin", Arial;
-}
-
-/* line 1, ../../views/css/pageDetails/_catalogo.sass */
+/* line 1, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid {
   margin-top: 20px;
 }
-/* line 3, ../../views/css/pageDetails/_catalogo.sass */
+/* line 3, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid > li {
   display: inline;
   float: left;
@@ -315,18 +278,18 @@ a img {
   height: 245px;
   background-color: #cccccc;
 }
-/* line 13, ../../views/css/pageDetails/_catalogo.sass */
+/* line 13, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid > li.last {
   margin-right: 0px;
 }
-/* line 16, ../../views/css/pageDetails/_catalogo.sass */
+/* line 16, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid > li h3 {
   font-family: "Cabin", Arial;
   color: white;
   font-size: 25px;
   margin-bottom: 5px;
 }
-/* line 22, ../../views/css/pageDetails/_catalogo.sass */
+/* line 22, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid > li a {
   padding: 10px;
   padding-top: 25px;
@@ -336,54 +299,47 @@ a img {
   text-decoration: none;
   display: block;
 }
-/* line 30, ../../views/css/pageDetails/_catalogo.sass */
+/* line 30, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid > li ahover {
   color: #a82d2d;
 }
-/* line 34, ../../views/css/pageDetails/_catalogo.sass */
+/* line 34, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid li.metalmecanica {
   background-image: url(/images/catalogo_marca_soldadura.jpg);
 }
-/* line 37, ../../views/css/pageDetails/_catalogo.sass */
+/* line 37, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid li.cerrajeria {
   background-image: url(/images/catalogo_marca_yale.jpg);
 }
-/* line 40, ../../views/css/pageDetails/_catalogo.sass */
+/* line 40, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid li.electrico {
   background-image: url(/images/catalogo_marca_electrico.jpg);
 }
-/* line 43, ../../views/css/pageDetails/_catalogo.sass */
+/* line 43, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid li.ferreteria {
   background-image: url(/images/catalogo_marca_ferreteria.jpg);
 }
-/* line 46, ../../views/css/pageDetails/_catalogo.sass */
+/* line 46, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid li.maderas {
   background-image: url(/images/catalogo_marca_madera.jpg);
 }
-/* line 49, ../../views/css/pageDetails/_catalogo.sass */
+/* line 49, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid ul {
   margin-top: 50px;
 }
-/* line 51, ../../views/css/pageDetails/_catalogo.sass */
+/* line 51, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid li {
   color: white;
   text-decoration: none;
   font-family: "Cabin", Arial;
 }
 
-/* line 2, ../../views/css/pageDetails/_enLinea.sass */
+/* line 2, ../../sass/pageDetails/_enLinea.sass */
 .enLineaInfo p {
   margin-top: 8px;
 }
 
-/* line 2, ../../views/css/pageDetails/_corporativo.sass */
-.corporativo p {
-  margin-bottom: 10px;
-  font-size: 13px;
-  font-family: Verdana;
-}
-
-/* line 2, ../../views/css/_lists.sass */
+/* line 2, ../../sass/_lists.sass */
 .simpleList li {
   border-bottom: 1px #999999 dotted;
   display: inline;
@@ -392,7 +348,7 @@ a img {
   margin-right: 10px;
   width: 195px;
 }
-/* line 6, ../../views/css/_lists.sass */
+/* line 6, ../../sass/_lists.sass */
 .simpleList li a {
   padding-top: 6px;
   padding-bottom: 6px;
@@ -406,12 +362,142 @@ a img {
   background-repeat: no-repeat;
   background-position: center left;
 }
-/* line 18, ../../views/css/_lists.sass */
+/* line 18, ../../sass/_lists.sass */
 .simpleList li:hover {
   color: #a82d2d;
 }
 
-/* line 3, ../../views/css/grid.sass */
+/* line 21, ../../sass/_lists.sass */
+ul#catalog_product_list {
+  overflow: hidden;
+  *zoom: 1;
+  background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0%, #666666), color-stop(100%, #b3b3b3));
+  background-image: -moz-linear-gradient(bottom, #666666 0%, #b3b3b3 100%);
+  background-image: linear-gradient(bottom, #666666 0%, #b3b3b3 100%);
+  margin-top: 4px;
+  padding: 20px;
+  padding-top: 5px;
+  padding-left: 0px;
+}
+/* line 28, ../../sass/_lists.sass */
+ul#catalog_product_list li {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 276px;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, #ffffff), color-stop(100%, #e9e9ea));
+  background-image: -moz-linear-gradient(left, #ffffff 0%, #e9e9ea 100%);
+  background-image: linear-gradient(left, #ffffff 0%, #e9e9ea 100%);
+  margin-top: 8px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-left: 20px;
+}
+/* line 12, ../../sass/_custom.sass */
+ul#catalog_product_list li .body {
+  min-height: 50px;
+}
+/* line 14, ../../sass/_custom.sass */
+ul#catalog_product_list li .body a.nombre {
+  display: block;
+  color: #18456d;
+  font-size: 11px;
+  padding-top: 9px;
+  padding-left: 9px;
+  text-decoration: none;
+}
+/* line 22, ../../sass/_custom.sass */
+ul#catalog_product_list li .footer {
+  display: block;
+  color: white;
+  padding: 4px;
+  padding-left: 9px;
+  font-size: 11px;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, #1a1a1a), color-stop(100%, #333334));
+  background-image: -moz-linear-gradient(left, #1a1a1a 0%, #333334 100%);
+  background-image: linear-gradient(left, #1a1a1a 0%, #333334 100%);
+}
+
+/* line 32, ../../sass/_lists.sass */
+ul#cart_product_list li {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 456px;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, #ffffff), color-stop(100%, #e9e9ea));
+  background-image: -moz-linear-gradient(left, #ffffff 0%, #e9e9ea 100%);
+  background-image: linear-gradient(left, #ffffff 0%, #e9e9ea 100%);
+  margin-top: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 12, ../../sass/_custom.sass */
+ul#cart_product_list li .body {
+  min-height: 50;
+}
+/* line 14, ../../sass/_custom.sass */
+ul#cart_product_list li .body a.nombre {
+  display: block;
+  color: #18456d;
+  font-size: 11px;
+  padding-top: 9px;
+  padding-left: 9px;
+  text-decoration: none;
+}
+/* line 22, ../../sass/_custom.sass */
+ul#cart_product_list li .footer {
+  display: block;
+  color: white;
+  padding: 4px;
+  padding-left: 9px;
+  font-size: 11px;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, #1a1a1a), color-stop(100%, #333334));
+  background-image: -moz-linear-gradient(left, #1a1a1a 0%, #333334 100%);
+  background-image: linear-gradient(left, #1a1a1a 0%, #333334 100%);
+}
+
+/* line 34, ../../sass/_lists.sass */
+ul#search_product_list {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 216px;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, #ffffff), color-stop(100%, #e9e9ea));
+  background-image: -moz-linear-gradient(left, #ffffff 0%, #e9e9ea 100%);
+  background-image: linear-gradient(left, #ffffff 0%, #e9e9ea 100%);
+  margin-top: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 12, ../../sass/_custom.sass */
+ul#search_product_list .body {
+  min-height: 50;
+}
+/* line 14, ../../sass/_custom.sass */
+ul#search_product_list .body a.nombre {
+  display: block;
+  color: #18456d;
+  font-size: 11px;
+  padding-top: 9px;
+  padding-left: 9px;
+  text-decoration: none;
+}
+/* line 22, ../../sass/_custom.sass */
+ul#search_product_list .footer {
+  display: block;
+  color: white;
+  padding: 4px;
+  padding-left: 9px;
+  font-size: 11px;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, #1a1a1a), color-stop(100%, #333334));
+  background-image: -moz-linear-gradient(left, #1a1a1a 0%, #333334 100%);
+  background-image: linear-gradient(left, #1a1a1a 0%, #333334 100%);
+}
+
+/* line 3, ../../sass/grid.sass */
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -419,7 +505,7 @@ a img {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 7, ../../views/css/grid.sass */
+/* line 7, ../../sass/grid.sass */
 .container #nav, .container #header, .container #content, .container #footer {
   display: inline;
   float: left;
@@ -428,4 +514,149 @@ a img {
   width: 940px;
   overflow: hidden;
   *zoom: 1;
+}
+
+/* line 12, ../../sass/grid.sass */
+#content {
+  background-color: white;
+  background-image: url(/images/background_page.png);
+  min-height: 450px;
+  padding-bottom: 25px;
+  width: 100%;
+  overflow: hidden;
+}
+/* line 20, ../../sass/grid.sass */
+#content .contentBox {
+  border: 1px solid #999999;
+  -moz-box-shadow: #333333 1px 1px 5px 0;
+  -webkit-box-shadow: #333333 1px 1px 5px 0;
+  -o-box-shadow: #333333 1px 1px 5px 0;
+  box-shadow: #333333 1px 1px 5px 0;
+  padding: 15px;
+  margin-top: 25px;
+  background-color: white;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 28, ../../sass/grid.sass */
+#content .contentBox .layout_half {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 30, ../../sass/grid.sass */
+#content .contentBox .layout_half .col {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 444px;
+}
+/* line 34, ../../sass/grid.sass */
+#content .contentBox .layout_third {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 36, ../../sass/grid.sass */
+#content .contentBox .layout_third .left {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 217px;
+  margin-left: 0;
+}
+/* line 40, ../../sass/grid.sass */
+#content .contentBox .layout_third .center {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 517px;
+}
+/* line 43, ../../sass/grid.sass */
+#content .contentBox .layout_third .right {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 157px;
+  margin-right: 0;
+}
+/* line 48, ../../sass/grid.sass */
+#content .contentBox .contentFooter {
+  border-top: 5px solid #999999;
+  margin-top: 10px;
+}
+
+/* line 52, ../../sass/grid.sass */
+#footer {
+  background-color: #18456d;
+}
+/* line 54, ../../sass/grid.sass */
+#footer #logo {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 236px;
+}
+/* line 56, ../../sass/grid.sass */
+#footer #logo img {
+  padding: 15px 15px 0px 0px;
+}
+/* line 58, ../../sass/grid.sass */
+#footer #contacto {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 332px;
+  text-align: right;
+}
+/* line 61, ../../sass/grid.sass */
+#footer #contacto span {
+  display: block;
+  margin-top: 30px;
+  border-right: #3c6b8e 1px solid;
+  font-size: 30px;
+  color: white;
+  padding-right: 8px;
+}
+/* line 68, ../../sass/grid.sass */
+#footer #smallnav {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 332px;
+}
+
+/* line 70, ../../sass/grid.sass */
+#copywrite {
+  background-color: #a82d2d;
+  height: 20px;
+}
+/* line 73, ../../sass/grid.sass */
+#copywrite p {
+  color: white;
+  font-size: 10px;
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 764px;
+  padding-top: 4px;
+}
+/* line 80, ../../sass/grid.sass */
+#copywrite .notification {
+  background-color: #696969;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/* line 85, ../../sass/grid.sass */
+#copywrite .notification p {
+  padding: 15px;
+  font-size: 11px;
+  color: #333333;
+  font-family: "Cabin", Arial;
 }

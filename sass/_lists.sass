@@ -1,0 +1,36 @@
+.simpleList 
+	li
+		border-bottom: 1px #999 dotted
+		+grid-unit-base
+		+grid-width(4,-25px)
+		a
+			padding-top: 6px	
+			padding-bottom: 6px
+			font-family: 'Cabin',Arial
+			color: #666
+			text-decoration: none
+			display: block
+			font-size: 12px
+			padding-left: 35px
+			background-image: url(/images/pointer_simpleList.png)
+			background-repeat: no-repeat
+			background-position: center left
+		&:hover
+			color: #A82D2D
+
+ul#catalog_product_list
+	+clearfix
+	+linear-gradient(color-stops(rgb(102,102,102), rgb(179,179,179)),bottom)
+	margin-top: 4px
+	padding: 20px
+	padding-top: 5px
+	padding-left: 0px
+	li
+		+productSkin(5,50px)
+		margin-left: 20px
+ul#cart_product_list
+	li
+		+productSkin(8)
+ul#search_product_list
+	li
+	+productSkin(4)

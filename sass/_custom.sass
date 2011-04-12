@@ -1,0 +1,28 @@
+$ninesixty-columns: 16
+=grid-width($n, $dif,$cols: $ninesixty-columns, $gutter-width: $ninesixty-gutter-width)
+	width: ($ninesixty-grid-width / $cols * $n - $gutter-width) + $dif 
+
+=productSkin($grid,$height: 50)
+	+grid-unit-base 
+	+grid-width($grid,-4px)
+	+linear-gradient(color-stops(#FFFFFF, #E9E9EA),left)
+	margin-top: 8px
+	+alpha
+	+omega
+	.body
+		min-height: $height
+		a.nombre
+			display: block
+			color: $blue
+			font-size: 11px
+			padding-top: 9px
+			padding-left: 9px
+			text-decoration: none
+
+	.footer
+		display: block
+		color: #fff
+		padding: 4px
+		padding-left: 9px
+		font-size: 11px
+		+linear-gradient(color-stops(rgb(26,26,26), rgb(51,51,52)),left)

@@ -1,0 +1,51 @@
+@import colors
+
+#nav
+	li
+		+grid-unit-base
+		+grid-width(3,-6px)
+		+alpha
+		+omega
+		margin-right: 2px
+		text-align: center
+		height: 35px
+		padding-bottom: 5px
+		margin-bottom: 3px
+		background-color: #fff
+		border-bottom: 4px $blue solid
+		&.last
+			margin-right: 0px
+		a
+			text-align: center
+			color: #fff
+			background-color: $blue
+			padding-top: 13px
+			padding-bottom: 10px
+			display: block
+			margin-bottom: 2px
+			text-decoration: none
+			text-transform: uppercase
+			
+#smallnav
+	li
+		margin-top: 40px
+		+grid-unit-base
+		+alpha
+		+omega
+		margin-right: 7px
+		text-align: center
+		padding-bottom: 5px
+		margin-bottom: 3px
+		color: $turk
+		a
+			text-align: center
+			color: $turk
+			font-size: 10px
+			background-color: $blue
+			display: block
+			text-decoration: none
+			text-transform: uppercase
+			border-right: 1px $turk solid
+			padding-right: 6px
+	li.last
+		display: none
