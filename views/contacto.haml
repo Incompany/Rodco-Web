@@ -1,6 +1,32 @@
 .contentBox
 	.title Contacto
- 
+	<iframe width="940" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=san+jose+costa+rica&amp;aq=&amp;sll=22.370396,-100.83252&amp;sspn=7.452181,19.27002&amp;ie=UTF8&amp;hq=&amp;hnear=San+Jose,+Costa+Rica&amp;ll=9.933333,-84.083333&amp;spn=0.003878,0.009409&amp;z=14&amp;iwloc=lyrftr:m,18411128810577741519,9.945243,-84.071159&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=san+jose+costa+rica&amp;aq=&amp;sll=22.370396,-100.83252&amp;sspn=7.452181,19.27002&amp;ie=UTF8&amp;hq=&amp;hnear=San+Jose,+Costa+Rica&amp;ll=9.933333,-84.083333&amp;spn=0.003878,0.009409&amp;z=14&amp;iwloc=lyrftr:m,18411128810577741519,9.945243,-84.071159" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+	.info
+		Complete el siguiente formulario y nos estaremos comunicando con usted lo más pronto posible para atenderle.
+	.layout_third
+		.leftLarge
+			%input{:type=>"text",:title=>"Nombre"}
+			%input{:type=>"text",:title=>"Email"}
+			%input{:type=>"text",:title=>"Empresa"}
+
+			
+		.centerSmall
+			%textarea{:type=>"textarea",:rows=>"10",:title=>"Escriba aquí su mensaje"}
+		.right
+			.heading
+				%h4 Teléfono
+				_506 22 33 44 44
+			.heading
+				%h4 Fax
+				_506 22 33 44 44
+				.heading
+				%h4 Correo Electrónico
+				_506 22 33 44 44
+				.heading
+				%h4 Dirección
+				_506 22 33 44 44
+				
+
 	.contentFooter
-		.button
-			%a{:href=>"#"} Ir Arriba
+		.button.right
+			%a{:href=>"#"} Enviar Mensaje
