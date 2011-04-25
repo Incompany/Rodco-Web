@@ -40,10 +40,12 @@ end
 get '/getdata' do
   ENV['SHOWSOAP'] = 'true'
   
-  
-  
   begin
      Net::HTTP.get 'www.google.com', '/'
+     
+     #remove to work remotely
+     return [404, {}, []]
+     
   rescue
     return [404, {}, []]
   end

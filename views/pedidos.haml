@@ -18,22 +18,24 @@
 		%h3 Por favor espere mientras descargamos la informacion de inventarios
 		
 	#selectCliente
-		%h2.title Escoja el Nombre del Cliente
-		%h3 Ingrese parte del nombre de un cliente para mostrar un lista de posibilidades
-		%input{:value=>"",:onchange=>"doSearchClientes()",:id=>"txt_searchCliente"}
+		%h2.title Sistema de Ingreso de Pedidos
+		.info <strong>Primer Paso: <strong/> Escoja el Nombre del Cliente
+		%input{:value=>"",:onchange=>"doSearchClientes()",:id=>"txt_searchCliente",:type=>"text",:title=>"escriba el nombre"}
 		%ul#clientesList
 
 	#doPedido
-		%h2.title #nombreDelCliente
-		%h3 Escoja los productos a ingresar en el pedido
+		%h2.title
+		.info Sistema de ingreso de pedidos, escoja el producto, ingrese la cantidad y de click en el nombre.
 		.layout_third
 			.left
-				%h2 Busqueda de Productos
-				%input{:value=>"",:onchange=>"doSearchProductos()",:id=>"txt_searchProducto",:type=>"text"}		
+				%input{:value=>"",:onchange=>"doSearchProductos()",:id=>"txt_searchProducto",:type=>"text",:title=>"Escriba el nombre"}		
 				%ul#productosList
-				.center
-				%h2 Productos del Pedido
-				.right
+		
+			.center
+				.subTitle Productos del Pedido
+				%ul#selectedProductosList
+		
+			.right
 				dsf ds
 		
 		

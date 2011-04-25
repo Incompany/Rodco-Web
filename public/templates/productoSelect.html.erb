@@ -1,0 +1,6 @@
+<li class="producto">
+	<a class="nombre" href="#chooseCliente/<%= item.Id %>"><%= item.Name %></a>
+	<span class="half">c: <%= item.PrecioMinimo__c %></span>
+	<span class="half"><%= item.PrecioMinimo__c %></span>
+	<input data-id="<%= item.Id %>" onchange="selectProducto(event)" class="selectionBox" cols="6" size="6" title="#"/>
+</li>

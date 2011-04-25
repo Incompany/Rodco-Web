@@ -4,6 +4,8 @@ var cart;
 var clientes=[];
 var map_clientes=[];
 var productos=[];
+var map_productos=[];
+var map_selected_productos=[];
 var oportunidades=[];
 var currentClienteId='';
 var username='';
@@ -17,6 +19,13 @@ function hideAllDivs(){
 	$('#selectCliente').hide();
 	$('#doPedido').hide();
 	$('#txt_searchCliente,#txt_searchProducto').val='';
+}
+
+function selectProducto(event){
+	target = event.currentTarget;
+	id=$(target).attr('data-id');
+	cantidad = $(target).val();
+	app.trigger('addProducto',{id: id,cantidad: cantidad});
 }
 
 function doSearchClientes(){
@@ -85,13 +94,17 @@ function doSearchClientes(){
 			currentClienteId = this.params['id'];
 			this.redirect('#doPedido/');
 		});
+		
+		this.get('#chooseProducto/:id',function(){	
+			
+		});
 
 			this.get('#doPedido/',function(){	
 				var context = this;
 				hideAllDivs();
 				$('#doPedido').show();
 				var cliente = map_clientes[currentClienteId];
-				$('#nombreDelCliente').html(cliente.Name);
+				$('#doPedido .title').html(cliente.Name);
 				$('#btn_restart_pedido').click(function(){
 						context.redirect('#selectCliente/');
 				});
@@ -102,6 +115,35 @@ function doSearchClientes(){
 				///////////////////////////////
 				///////// EVENTS
 				//////////////////////////////////
+
+
+			////////////////////////
+			////////// PRODUCT  EVENTS
+			
+			this.bind('addProducto', function(e, data) {
+				var context = this;
+				id = data['id'];
+				cantidad = data['cantidad'];
+					//checkCurrentProduct quantitu
+					pObj = map_selected_productos[id];
+					if(pObj==null){
+						otherP = map_productos[id];
+						//map_selected_productos[id]= {Id:id,Cantidad: cantidad, Name: otherP.Name, PrecioMinimo__c: otherP.PrecioMinimo__c }; 
+					}
+					else{
+						map_selected_productos[id].Cantidad = cantidad; 
+					}
+					context.trigger('refreshShowProductos');
+			});
+
+			this.bind('refreshShowProductos', function(e, data) {
+					$('#selectedProductosList').html(' ');
+					$.each(map_selected_productos, function(i, item) {
+							context.partial('/templates/productoShow.html.erb', {item: item}, function(html) {
+								$('#selectedProductosList').append(html);
+							});
+					});
+			});
 
 		////////////////////////
 		////////// LOGIN EVENTS
@@ -191,6 +233,13 @@ function doSearchClientes(){
 				
 			});
 			
+			$.each(productos, function(i, item) {
+				
+				map_productos[item.Id]=item;	
+				
+			});
+			
+			
 			context.redirect('#selectCliente');
 		});
 
@@ -214,7 +263,7 @@ function doSearchClientes(){
 			tempproductos = data['results']
 				$('#productosList').html(' ');
 			$.each(tempproductos, function(i, item) {
-					context.partial('/templates/producto.html.erb', {item: item}, function(html) {
+					context.partial('/templates/productoSelect.html.erb', {item: item}, function(html) {
 						
 						$('#productosList').append(html);
 					});
