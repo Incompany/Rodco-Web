@@ -2,14 +2,12 @@
 	margin-top: 20px 
 	>li 
 		+grid-unit-base 
-		+grid-width(5,-40px)
-		padding: 20px 
-		padding-top: 14px
-		margin-bottom: 25px
+		+grid-width(5,0px) 
+		margin-bottom: 20px
 		margin-left: 15px 
 		margin-right:  13px  
 		height: 245px
-		background-color: #CCC 
+		+linear-gradient(color-stops(#DCDCDC,#f8f8f8,#ffffff ,#DCDCDC))
 		&.last 
 			margin-right: 0px 
 		
@@ -17,7 +15,7 @@
 			font-family: 'Cabin',Arial 
 			color: #fff  
 			font-size: 25px 
-			margin-bottom: 5px 
+			padding: 8px
 		
 		>a 
 			padding: 10px 
@@ -31,29 +29,46 @@
 				color: #A82D2D 
 
 
-	li.metalmecanica 
-		background-image: url(/images/catalogo_marca_soldadura.jpg)
+	li.metalmecanica
+		border-bottom: 7px solid #047D56
+		h3
+			background-color: #047D56
 	
-	li.cerrajeria 
-		background-image: url(/images/catalogo_marca_yale.jpg) 
-
 	li.electrico 
-		background-image: url(/images/catalogo_marca_electrico.jpg) 
+		border-bottom: 7px solid #C4262E
+		h3
+			background-color: #C4262E
+	
+
+	li.cerrajeria 
+		border-bottom: 7px solid #E2BE42
+		h3
+			background-color: #E2BE42
+
 
 	li.ferreteria 
-		background-image: url(/images/catalogo_marca_ferreteria.jpg)
- 
+		border-bottom: 7px solid #005E81
+		h3
+			background-color: #005E81
+
 	li.maderas 
-		background-image: url(/images/catalogo_marca_madera.jpg)
- 
+		border-bottom: 7px solid #4D3413
+		h3
+			background-color: #4D3413
+
 	ul 
-		margin-top: 50px 
+		margin-top: 20px 
 		li
 			a 
-				color: #fff 
+				color: #333 
 				text-decoration: none 
-				margin-bottom: 9px
-				margin-left: 9px
+				margin-bottom: 7px
 				font-family: 'Cabin',Arial 
 				display: block
+				padding-top: 4px
+				padding-bottom: 4px
+				padding-left: 13px
+			a:hover
+				background-color: #333
+				color: #fff
  

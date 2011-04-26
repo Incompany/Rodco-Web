@@ -374,27 +374,27 @@ textarea {
   float: left;
   margin-left: 10px;
   margin-right: 10px;
-  width: 240px;
-  padding: 20px;
-  padding-top: 14px;
-  margin-bottom: 25px;
+  width: 280px;
+  margin-bottom: 20px;
   margin-left: 15px;
   margin-right: 13px;
   height: 245px;
-  background-color: #cccccc;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #dcdcdc), color-stop(33.333%, #f8f8f8), color-stop(66.667%, #ffffff), color-stop(100%, #dcdcdc));
+  background-image: -moz-linear-gradient(top, #dcdcdc 0%, #f8f8f8 33.333%, #ffffff 66.667%, #dcdcdc 100%);
+  background-image: linear-gradient(top, #dcdcdc 0%, #f8f8f8 33.333%, #ffffff 66.667%, #dcdcdc 100%);
 }
-/* line 13, ../../sass/pageDetails/_catalogo.sass */
+/* line 11, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid > li.last {
   margin-right: 0px;
 }
-/* line 16, ../../sass/pageDetails/_catalogo.sass */
+/* line 14, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid > li > h3 {
   font-family: "Cabin", Arial;
   color: white;
   font-size: 25px;
-  margin-bottom: 5px;
+  padding: 8px;
 }
-/* line 22, ../../sass/pageDetails/_catalogo.sass */
+/* line 20, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid > li > a {
   padding: 10px;
   padding-top: 25px;
@@ -404,42 +404,69 @@ textarea {
   text-decoration: none;
   display: block;
 }
-/* line 30, ../../sass/pageDetails/_catalogo.sass */
+/* line 28, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid > li > ahover {
   color: #a82d2d;
 }
-/* line 34, ../../sass/pageDetails/_catalogo.sass */
+/* line 32, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid li.metalmecanica {
-  background-image: url(/images/catalogo_marca_soldadura.jpg);
+  border-bottom: 7px solid #047d56;
+}
+/* line 34, ../../sass/pageDetails/_catalogo.sass */
+.bigGrid li.metalmecanica h3 {
+  background-color: #047d56;
 }
 /* line 37, ../../sass/pageDetails/_catalogo.sass */
-.bigGrid li.cerrajeria {
-  background-image: url(/images/catalogo_marca_yale.jpg);
-}
-/* line 40, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid li.electrico {
-  background-image: url(/images/catalogo_marca_electrico.jpg);
+  border-bottom: 7px solid #c4262e;
+}
+/* line 39, ../../sass/pageDetails/_catalogo.sass */
+.bigGrid li.electrico h3 {
+  background-color: #c4262e;
 }
 /* line 43, ../../sass/pageDetails/_catalogo.sass */
-.bigGrid li.ferreteria {
-  background-image: url(/images/catalogo_marca_ferreteria.jpg);
+.bigGrid li.cerrajeria {
+  border-bottom: 7px solid #e2be42;
 }
-/* line 46, ../../sass/pageDetails/_catalogo.sass */
-.bigGrid li.maderas {
-  background-image: url(/images/catalogo_marca_madera.jpg);
+/* line 45, ../../sass/pageDetails/_catalogo.sass */
+.bigGrid li.cerrajeria h3 {
+  background-color: #e2be42;
 }
 /* line 49, ../../sass/pageDetails/_catalogo.sass */
-.bigGrid ul {
-  margin-top: 50px;
+.bigGrid li.ferreteria {
+  border-bottom: 7px solid #005e81;
 }
-/* line 52, ../../sass/pageDetails/_catalogo.sass */
+/* line 51, ../../sass/pageDetails/_catalogo.sass */
+.bigGrid li.ferreteria h3 {
+  background-color: #005e81;
+}
+/* line 54, ../../sass/pageDetails/_catalogo.sass */
+.bigGrid li.maderas {
+  border-bottom: 7px solid #4d3413;
+}
+/* line 56, ../../sass/pageDetails/_catalogo.sass */
+.bigGrid li.maderas h3 {
+  background-color: #4d3413;
+}
+/* line 59, ../../sass/pageDetails/_catalogo.sass */
+.bigGrid ul {
+  margin-top: 20px;
+}
+/* line 62, ../../sass/pageDetails/_catalogo.sass */
 .bigGrid ul li a {
-  color: white;
+  color: #333333;
   text-decoration: none;
-  margin-bottom: 9px;
-  margin-left: 9px;
+  margin-bottom: 7px;
   font-family: "Cabin", Arial;
   display: block;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 13px;
+}
+/* line 71, ../../sass/pageDetails/_catalogo.sass */
+.bigGrid ul li a:hover {
+  background-color: #333333;
+  color: white;
 }
 
 /* line 2, ../../sass/pageDetails/_enLinea.sass */
