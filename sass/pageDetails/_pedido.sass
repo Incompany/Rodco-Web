@@ -1,4 +1,12 @@
+#totalPlaceHolder
+	+grid-unit-base 
+	+grid-width(4,-40px)
+	color: $blue
+	font-size: 15px
+	margin-top: 6px
+	
 #clientesList
+	+clearfix
 	margin-top: 14px
 	li
 		+grid-unit-base 
@@ -15,6 +23,7 @@
 			text-decoration: none
 			
 #productosList
+	+clearfix
 	margin-top: 9px
 	li
 		+grid-unit-base 
@@ -37,4 +46,50 @@
 			+grid-width(1,20px)
 			font-size: 11px
 			+alpha
+
+#selectedProductosList
+	li
+		+linear-gradient(color-stops(#FFFFFF, #E9E9EA))
+		padding: 6px
+		border: 1px solid #333
+		margin-bottom: 10px
+		+alpha
+		+omega
+		+clearfix
+		h4
+			+grid-unit-base 
+			+grid-width(5,15px)
+			font-size: 12px
+			color: $blue
+			margin-top: 8px
+		h5
+			+grid-unit-base 
+			+grid-width(1,-4px)
+			font-size: 12px
+			color: $blue
+			margin-top: 8px
+			text-align: center
+			font-weight: bold
+		input
+			+grid-unit-base 
+			+grid-width(1,-4px)
+			+omega
+		h6
+			+grid-unit-base 
+			font-size: 12px
+			color: $blue
+			margin-top: 8px
+			text-align: center
+			font-weight: bold
+			+alpha
+			+omega
 			
+#pedidosList
+	li
+		+linear-gradient(color-stops(#FFFFFF, #E9E9EA))
+		padding: 6px
+		border: 1px solid #333
+		margin-bottom: 10px
+		+alpha
+		+omega
+		+clearfix

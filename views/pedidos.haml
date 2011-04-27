@@ -28,7 +28,7 @@
 		.info Sistema de ingreso de pedidos, escoja el producto, ingrese la cantidad y de click en el nombre.
 		.layout_third
 			.left
-				%input{:value=>"",:onchange=>"doSearchProductos()",:id=>"txt_searchProducto",:type=>"text",:title=>"Escriba el nombre"}		
+				%input{:value=>"",:onchange=>"doSearchProductos()",:id=>"txt_searchProducto",:type=>"text",:title=>"Escriba el nombre",:size=>"14"}
 				%ul#productosList
 		
 			.center
@@ -37,9 +37,19 @@
 		
 			.right
 				dsf ds
-		
-		
+	
+		.contentFooter
+			#totalPlaceHolder
+			#btnSave.button.right
+				%a Guardar
+			#btnRestart.button.right
+				%a Cancelar
 
+	#listPedido
+		%h2.title Lista de Pedidos
+		.info
+			%a{:href=>"#selectCliente"} Pedido Nuevo
+		%ul#pedidosList
 
 -['sammy', 'sammy.json', 'sammy.storage', 'sammy.template','pedidos'].each do |js|
 	%script{:src => "/js/#{js}.js", :type => 'text/javascript', :charset => 'utf-8'}

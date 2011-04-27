@@ -1,0 +1,6 @@
+<li class="producto">
+	<h4> <%= item.Name %> </h4>
+	<h5> <%= item.Precio %> </h5>
+	<input data-id="<%= item.Id %>" onchange="selectProducto(event)" value="<%= item.Cantidad %>" class="selectionBox" cols="6" size="6" title="#"/>
+	<input data-id="<%= item.Id %>" onchange="onChangeDescuento(event)" value="<%= item.Descuento %>" class="selectionBox" cols="3" size="3" title="#"/><h6>%</h6>
+</li>

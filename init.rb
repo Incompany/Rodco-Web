@@ -36,6 +36,17 @@ get '/styles' do
  haml :styles
 end
 
+get '/saveOpportunities' do
+  opportunity = [
+                      :type,'Producto__c',
+                      :CodigoExterno__c,   '1016013002', 
+                      :NombreWeb__c,      'producto[1]' , 
+                      :Descripcion__c , 'producto[2]' ,
+                      :Departamento__c, 'producto[9]',
+                      :Categoria__c,'jkkkjjk',
+                      :Marca__c,'jkkn'
+                 ]
+end
 
 get '/getdata' do
   ENV['SHOWSOAP'] = 'true'
@@ -43,8 +54,8 @@ get '/getdata' do
   begin
      Net::HTTP.get 'www.google.com', '/'
      
-     #remove to work remotely
-     return [404, {}, []]
+     #remove # to work remotely
+     #return [404, {}, []]
      
   rescue
     return [404, {}, []]
@@ -65,7 +76,7 @@ get '/getdata' do
 
     answer = binding.query  \
       :queryString =>
-        'select name,id,PrecioMinimo__c from producto__c limit 5'
+        'select name,id,PrecioMinimo__c , Impuesto__c , InventarioActual__c, DescuentoMinimo__c , DescuentoMaximo__c from producto__c limit 5'
 
     records += answer.queryResponse.result.records
          
