@@ -124,13 +124,13 @@ get '/getdata' do
 
     answer = binding.query  \
       :queryString =>
-        'select name,id,PrecioMinimo__c , Impuesto__c , InventarioActual__c, DescuentoMinimo__c , DescuentoMaximo__c from producto__c limit 10'
+        'select name,id,PrecioMinimo__c , Impuesto__c , InventarioActual__c, DescuentoMinimo__c , DescuentoMaximo__c from producto__c'
 
     records += answer.queryResponse.result.records
          
     answer = binding.query  \
     :queryString =>
-      'select name,Id from cliente__c limit 10'
+      'select name,Id from cliente__c'
             
     records += answer.queryResponse.result.records
     
