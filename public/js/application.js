@@ -15,6 +15,7 @@ function loadFacebook(){
 $(document).ready(function(){
 	loadFacebook();
   $(":text").labelify();
+	$(":password").labelify();
   $("textarea").labelify();
 
 

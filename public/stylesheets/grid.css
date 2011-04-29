@@ -81,6 +81,10 @@ a img {
 .button.right {
   float: right;
 }
+/* line 18, ../../sass/_buttons.sass */
+.button.margin {
+  margin-right: 10px;
+}
 
 /* line 1, ../../sass/_styles.sass */
 .title {
@@ -486,7 +490,7 @@ textarea {
   margin-left: 2px;
 }
 
-/* line 1, ../../sass/pageDetails/_pedido.sass */
+/* line 3, ../../sass/pageDetails/_pedido.sass */
 #totalPlaceHolder {
   display: inline;
   float: left;
@@ -498,13 +502,13 @@ textarea {
   margin-top: 6px;
 }
 
-/* line 8, ../../sass/pageDetails/_pedido.sass */
+/* line 10, ../../sass/pageDetails/_pedido.sass */
 #clientesList {
   overflow: hidden;
   *zoom: 1;
   margin-top: 14px;
 }
-/* line 11, ../../sass/pageDetails/_pedido.sass */
+/* line 13, ../../sass/pageDetails/_pedido.sass */
 #clientesList li {
   display: inline;
   float: left;
@@ -514,32 +518,32 @@ textarea {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffffff), color-stop(100%, #e9e9ea));
   background-image: -moz-linear-gradient(top, #ffffff 0%, #e9e9ea 100%);
   background-image: linear-gradient(top, #ffffff 0%, #e9e9ea 100%);
-  height: 45px;
+  height: 30px;
   border: #18456d;
-  padding: 15px;
+  padding: 10px;
   border: 1px solid #333333;
   margin-bottom: 15px;
 }
-/* line 20, ../../sass/pageDetails/_pedido.sass */
+/* line 22, ../../sass/pageDetails/_pedido.sass */
 #clientesList li a {
   font-size: 12px;
   color: #18456d;
   text-decoration: none;
 }
 
-/* line 25, ../../sass/pageDetails/_pedido.sass */
+/* line 27, ../../sass/pageDetails/_pedido.sass */
 #productosList {
   overflow: hidden;
   *zoom: 1;
   margin-top: 9px;
 }
-/* line 28, ../../sass/pageDetails/_pedido.sass */
+/* line 30, ../../sass/pageDetails/_pedido.sass */
 #productosList li {
   display: inline;
   float: left;
   margin-left: 10px;
   margin-right: 10px;
-  width: 210px;
+  width: 200px;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffffff), color-stop(100%, #e9e9ea));
   background-image: -moz-linear-gradient(top, #ffffff 0%, #e9e9ea 100%);
   background-image: linear-gradient(top, #ffffff 0%, #e9e9ea 100%);
@@ -549,7 +553,7 @@ textarea {
   margin-left: 0;
   margin-right: 0;
 }
-/* line 37, ../../sass/pageDetails/_pedido.sass */
+/* line 39, ../../sass/pageDetails/_pedido.sass */
 #productosList li a {
   font-size: 12px;
   color: #18456d;
@@ -557,7 +561,7 @@ textarea {
   display: block;
   margin-bottom: 4px;
 }
-/* line 43, ../../sass/pageDetails/_pedido.sass */
+/* line 45, ../../sass/pageDetails/_pedido.sass */
 #productosList li .half {
   padding-top: 4px;
   display: inline;
@@ -569,7 +573,7 @@ textarea {
   margin-left: 0;
 }
 
-/* line 51, ../../sass/pageDetails/_pedido.sass */
+/* line 53, ../../sass/pageDetails/_pedido.sass */
 #selectedProductosList li {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffffff), color-stop(100%, #e9e9ea));
   background-image: -moz-linear-gradient(top, #ffffff 0%, #e9e9ea 100%);
@@ -582,7 +586,7 @@ textarea {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 59, ../../sass/pageDetails/_pedido.sass */
+/* line 61, ../../sass/pageDetails/_pedido.sass */
 #selectedProductosList li h4 {
   display: inline;
   float: left;
@@ -593,7 +597,7 @@ textarea {
   color: #18456d;
   margin-top: 8px;
 }
-/* line 65, ../../sass/pageDetails/_pedido.sass */
+/* line 67, ../../sass/pageDetails/_pedido.sass */
 #selectedProductosList li h5 {
   display: inline;
   float: left;
@@ -606,7 +610,7 @@ textarea {
   text-align: center;
   font-weight: bold;
 }
-/* line 73, ../../sass/pageDetails/_pedido.sass */
+/* line 75, ../../sass/pageDetails/_pedido.sass */
 #selectedProductosList li input {
   display: inline;
   float: left;
@@ -615,7 +619,7 @@ textarea {
   width: 36px;
   margin-right: 0;
 }
-/* line 77, ../../sass/pageDetails/_pedido.sass */
+/* line 79, ../../sass/pageDetails/_pedido.sass */
 #selectedProductosList li h6 {
   display: inline;
   float: left;
@@ -630,7 +634,7 @@ textarea {
   margin-right: 0;
 }
 
-/* line 88, ../../sass/pageDetails/_pedido.sass */
+/* line 90, ../../sass/pageDetails/_pedido.sass */
 #pedidosList li {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffffff), color-stop(100%, #e9e9ea));
   background-image: -moz-linear-gradient(top, #ffffff 0%, #e9e9ea 100%);
@@ -642,6 +646,59 @@ textarea {
   margin-right: 0;
   overflow: hidden;
   *zoom: 1;
+}
+/* line 98, ../../sass/pageDetails/_pedido.sass */
+#pedidosList li h4 {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 221px;
+  font-size: 12px;
+  color: #18456d;
+  margin-top: 8px;
+}
+/* line 104, ../../sass/pageDetails/_pedido.sass */
+#pedidosList li h5 {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 101px;
+  font-size: 12px;
+  color: #18456d;
+  margin-top: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+/* line 112, ../../sass/pageDetails/_pedido.sass */
+#pedidosList li h6 {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 12px;
+  color: #18456d;
+  margin-top: 8px;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 121, ../../sass/pageDetails/_pedido.sass */
+#pedidosList li a {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 101px;
+  font-size: 12px;
+  color: #18456d;
+  margin-top: 8px;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* line 2, ../../sass/_lists.sass */

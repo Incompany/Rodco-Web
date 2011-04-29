@@ -1,17 +1,19 @@
 .contentBox
 
 	#login
-		%h2.title Login al Sistema
-		%h3 Ingrese al sistema con sus credenciales
-		%h4.label Usuario 
-		%input{:value=>"integration@rodcocr.com.test",:id=>"txt_username",:type=>"text"}
-		%h4.label Clave
-		%input{:value=>"company1",:id=>"txt_password",:type=>"password"}
-		%h4.label Seguridad
-		%input{:value=>"bYd3nuKDhYuUYOuJA0Di7clmi",:id=>"txt_token",:type=>"text"}
-		%h5 
-			%a{:href=>"/help?tag=security"} como obtener el token?
-		%a.button{:href=>"#",:id=>"btn_login"} Login
+		.title Envie sus Pedidos En Linea
+		.info 
+			%a{:href=>"/contacto"} Contactenos para solicitar su clave
+		%h3 Usuario
+		%input{:id=>"txt_username",:type=>"text",:title=>"Email"}
+		%h3 Clave
+		%input{:id=>"txt_password",:type=>"password"}
+		%h3 Token
+		%input{:id=>"txt_token",:type=>"text",:title=>"Token"}
+ 
+		.contentFooter
+			.button
+				%a{:href=>"#doLogin/",:id=>"btn_login"} Login
 	#loading
 		%img{:src=>"/images/ajax-loader.gif",:align =>"left"}
 		%h2.title Actualizando el Sistema
@@ -41,15 +43,23 @@
 		.contentFooter
 			#totalPlaceHolder
 			#btnSave.button.right
-				%a Guardar
-			#btnRestart.button.right
-				%a Cancelar
+				%a{:href=>"#pedido_save/"} Guardar
+			#btnRestart.button.right.margin
+				%a{:href=>"#pedido_new/"} Cancelar
 
 	#listPedido
+		%img{:src=>"/images/ajax-loader.gif",:align =>"left",:id=>"ajaxLoader"}
 		%h2.title Lista de Pedidos
-		.info
-			%a{:href=>"#selectCliente"} Pedido Nuevo
+		.info Los pedidos aqui mostrados no han sido enviados al servidor.
+		
 		%ul#pedidosList
+		
+		.contentFooter
+			#totalPlaceHolder
+			.button.right
+				%a{:href=>"#pedido_send/"} Enviar
+			.button.right.margin
+				%a{:href=>"#pedido_new/"} Crear
 
 -['sammy', 'sammy.json', 'sammy.storage', 'sammy.template','pedidos'].each do |js|
 	%script{:src => "/js/#{js}.js", :type => 'text/javascript', :charset => 'utf-8'}

@@ -40,6 +40,7 @@ function selectProducto(event){
 	target = event.currentTarget;
 	id=$(target).attr('data-id');
 	cantidad = $(target).val();
+	$(target).val('');
 	app.trigger('addProducto',{id: id,cantidad: cantidad});
 }
 
@@ -48,9 +49,9 @@ function onChangeDescuento(event){
 	target = event.currentTarget;
 	id=$(target).attr('data-id');
 	descuento = $(target).val();
+	$(target).val('');
 	app.trigger('addDescuento',{id: id,descuento: descuento});
 }
- 
 
 //Executes onchange of txt_searchcliente
 function doSearchClientes(){
@@ -85,6 +86,7 @@ function doSearchClientes(){
 			app.trigger('doShowProductoSearchResult',{results: results});
 	}
  
+ 
 	
 	$(document).ready(function(){
 		app = $.sammy('body', function() {
@@ -103,40 +105,36 @@ function doSearchClientes(){
 				
 				//init
 				$('#login').show();
-				$('#btn_login').click(function(){
-					context.trigger('handleLogin');
-				});
 			});
 		
-		this.get('#loading/',function(){	
+		this.get('#doLogin/',function(){	
 			hideAllDivs();
 			
 			//init
 			$('#loading').show();
+			this.trigger('handleLogin');
 		});
 		
-		this.get('#selectCliente',function(){		 
+		this.get('#pedido_new/',function(){		 
 			hideAllDivs();
 			
 			//init
+			//('#clientesList').html('');
 			$('#txt_searchCliente').val('');
 			$('#selectCliente').show();
 		});
 		
-		this.get('#chooseCliente/:id',function(){	
+		this.get('#pedido_selectCliente/:id',function(){	
 			hideAllDivs();
-			
 			//init
+			$('#txt_searchCliente').val('');
 			currentClienteId = this.params['id'];
-			this.redirect('#doPedido/');
+			this.redirect('#pedido_selectProducto/');
 		});
-		
- 
-
-			this.get('#doPedido/',function(){	
+			
+		this.get('#pedido_selectProducto/',function(){	
 				var context = this;
 				hideAllDivs();
-			
 				//init
 				$('#txt_searchProducto').val('');
 				$('.contentFooter').hide();
@@ -144,70 +142,82 @@ function doSearchClientes(){
 				
 				var cliente = map_clientes[currentClienteId];
 				$('#doPedido .title').html(cliente.Name);
-				
-				$('#btnSave').click(function(){
-					context.trigger('savePedido');
-				});
-				
-				$('#btnRestart').click(function(){
-					context.redirect('#selectCliente/');
-				});
-				
+								
 		});
-	
-			this.get('#showPedidos/',function(){	
+ 		
+		this.get('#pedido_save/',function(){	
+			var context = this;
+			hideAllDivs();
+
+			for(var index in map_selected_productos) {
+					item = map_selected_productos[index];
+					producto = map_productos[index];
+					var cliente = map_clientes[currentClienteId];
+
+					pid = index.split(',')[0];
+					cid=currentClienteId.split(',')[0];
+
+					oportunidad=new Object();
+					oportunidad.cliente__c = cid;
+					oportunidad.producto__c= pid;
+					oportunidad.cantidad__c=item.Cantidad ;
+					oportunidad.precio__c = item.Precio;
+					oportunidad.descuento__c = item.Descuento;
+					oportunidad.cliente = cliente.Name; 
+					oportunidad.producto = producto.Name; 
+					oportunidad.fecha =  new Date();
+					oportunidad.type ='Oportunidad__c';
+					oportunidades.push(oportunidad);
+			}
+
+			//opp_j=this.json(oportunidades);
+			store.set('oportunidades', oportunidades);
+			context.redirect('#pedido_show/');
+		});
+
+		this.get('#pedido_delete/:index',function(){	
+			delete oportunidades[this.params['index']];
+			store.set('oportunidades', oportunidades);
+			this.redirect('#pedido_show/');
+		});
+
+			this.get('#pedido_show/',function(){	
+				$('#ajaxLoader').hide();
 				var context = this;
 				hideAllDivs();
 				$('#listPedido').show();
 				$('#pedidosList').html('');	
 				$.each(oportunidades, function(i, item) {
-					
-						context.partial('/templates/pedidoItem.html.erb', {item: item}, function(html) {
+						context.partial('/templates/oportunidadItem.html.erb', {item: item,index: i}, function(html) {
 							$('#pedidosList').append(html);
 						});
 		    });
+			});
+	
+			this.get('#pedido_send/',function(){	
+				$('#ajaxLoader').show();
+				var query = 'username=' + username + '&password=' + password + '&token='+token + '&oportunidades='+this.json(oportunidades);
+				var context = this;
+					$.ajax({
+						url: "/saveOpportunities",
+						type:"POST",
+						data: query ,
+						context: document.body,
+						success: function(data){
+							context.trigger('hangleSaveOportunidades',{all: data});
+						},
+						error: function(re,text,error) {
+							context.trigger('handleSaveOportunidadesError',{request: re , text: text , error: error}); 
+						}
+					});
 			});
 	
 				///////////////////////////////
 				///////// EVENTS
 				//////////////////////////////////
 
-				////////////////////////
-				////////// PEDIDO  EVENTS
-				this.bind('savePedido', function(e, data) {
-
-					var context = this;
-					hideAllDivs();
-
-					for(var index in map_selected_productos) {
-
-							item = map_selected_productos[index];
-
-							producto = map_productos[index];
-
-							var cliente = map_clientes[currentClienteId];
-
-							oportunidad=[];
-							oportunidad['cliente__c'] = currentClienteId;
-							oportunidad['producto__c']= index[0];
-							oportunidad['cantidad__c']=item.Cantidad ;
-							oportunidad['precio__c'] = item.Precio;
-							oportunidad['descuento__c'] = item.Descuento;
-							oportunidad['cliente'] = cliente.Name; 
-							oportunidad['producto'] = producto.Name; 
-
-							oportunidades.push(this.json(oportunidad));
-							
-					}
-					
-					store.set('oportunidades', oportunidades);	
-					context.redirect('#showPedidos/');
-					
-				});
-
 			////////////////////////
 			////////// PRODUCT  EVENTS
-			
 			
 				this.bind('addDescuento', function(e, data) {
 					var context = this;
@@ -235,7 +245,6 @@ function doSearchClientes(){
 					else{
 						map_selected_productos[id].Cantidad = cantidad; 
 					}
-					
 					context.trigger('refreshTotal');
 			});
 
@@ -243,21 +252,15 @@ function doSearchClientes(){
 			this.bind('refreshShowProductos', function(e, data) {
 				var context = this;
 					$('#selectedProductosList').html(' ');
-					
 					tempArray=[];
-					
 					for(var index in map_selected_productos) {
 						tempArray.push(map_selected_productos[index]);
 					}
-					
-					
 					$.each(tempArray, function(i, item) {
 							context.partial('/templates/productoItemList.html.erb', {item: item}, function(html) {
 								$('#selectedProductosList').append(html);
 							});
-					});
-					
-					
+					});					
 			});
 
 			//Calculates Total for Selected Items
@@ -267,9 +270,7 @@ function doSearchClientes(){
 						$('.contentFooter').show();
 
 						for(var index in map_selected_productos) {
-							
-							item = map_selected_productos[index];
-							
+							item = map_selected_productos[index];							
 							producto = map_productos[index];
 							
 							//if(item.Cantidad > producto.InventarioActual__c){ 
@@ -301,8 +302,6 @@ function doSearchClientes(){
 			store.set('token',token);
 			
 			context.trigger('loadRemoteData');
-			context.redirect('#loading/');
-			
 		});
 
 		this.bind('handleLoginError',function(e,data){
@@ -313,11 +312,16 @@ function doSearchClientes(){
 				$('#txt_password').val(password);
 				$('#txt_token').val(token);
 				alert('Error haciendo login');
-				context.redirect('#login/');
+				//context.redirect('#login/');
 			}
 			else if(re.status==404){
-				//alert('Trabajando Off-Line');
-				context.trigger('loadLocalData');	
+				alert('Trabajando Off-Line');
+				if(store.get('authKey')==null){
+					alert('No encontramos una session anterior, para hacer Login debe estar conectado a Internet.');
+				}
+				else{
+					//context.trigger('loadLocalData');	
+				}
 			}
 		});
 
@@ -366,28 +370,71 @@ function doSearchClientes(){
 			var context = this;
 			clientes = store.get('clientes'); 
 			productos = store.get('productos');
-			oportunidades = store.get('oportunidades'); 
-			
-			if(oportunidades==null || oportunidades == undefined){
-				oportunidades = new Array();
+			opp = store.get('oportunidades'); 		 
+			oportunidades = new Array();
+			if(opp!=null){
+				$.each(opp, function(i, item) {
+					if(item!=null && item != undefined){
+						oportunidades.push(item);
+					}
+				});
 			}
 			
 			$.each(clientes, function(i, item) {
-				
 				map_clientes[item.Id]=item;	
-				
 			});
 			
 			$.each(productos, function(i, item) {
-				
 				map_productos[item.Id]=item;	
-				
 			});
 			
-			
-			context.redirect('#showPedidos/');
+			context.redirect('#pedido_show/');
 		});
 
+
+
+		////////////////////////
+		////////// DATA SAVING EVENTS
+		
+ 		this.bind('handleSaveOportunidadesError',function(e,data){
+			var context = this;
+			var re = data['request'];
+			if(re.status='404'){
+				alert('No se puedo conectar a internet para enviar los pedidos. Favor revise su conexion.');
+			}
+			else{
+		 		alert('Error del Tipo ' + re.status + ' :: ' + re.statusText + '. Favor reportelo a su administrador.');
+			}
+			context.redirect('#pedido_show/');
+		});
+
+			//TODO IMPROVE THIS WAY TO HANDLE N AND N+1 RESULTS
+				this.bind('hangleSaveOportunidades', function(e, data) {
+					var context =this;
+					var temp = data['all'];
+				 	o = this.json(temp);
+					results = o.createResponse.result;
+					if(results.success=="true"){
+						delete oportunidades[0];
+					}
+					else if(results.success=="false"){
+						alert('Resporte este error al Administrador: ' + context.json(results));
+					}
+					else{	
+						$.each(results, function(i, item) {
+							if(item.success=="true"){
+								delete oportunidades[i];
+							}
+							else{
+									alert('Resporte este error al Administrador: ' + context.json(item));
+							}
+						});
+					}
+				
+					store.set('oportunidades', oportunidades);
+					
+					context.redirect('#pedido_show/');
+				});
 
 		////////////////////////
 		////////// SEARCH EVENTS
@@ -397,7 +444,7 @@ function doSearchClientes(){
 			tempclientes = data['results']
 			$('#clientesList').html(' ');
 			$.each(tempclientes, function(i, item) {
-					context.partial('/templates/cliente.html.erb', {item: item}, function(html) {
+					context.partial('/templates/clienteItem.html.erb', {item: item}, function(html) {
 						$('#clientesList').append(html);
 					});
 	    });
@@ -422,21 +469,13 @@ function doSearchClientes(){
 			var context = this;
 			store = new Sammy.Store({name: 'rodco-facturacion', element: 'body', type: 'local'});
 			cart = new Sammy.Store({name: 'rodco-cart', element: 'body', type: 'session'});
-		
-			
-		
-			if(store.get('username')==null){
-				context.redirect('#login/');
-			}
-			else{
-				username = store.get('username');
-				password = store.get('password');
-				token = store.get('token');
-				context.trigger('loadRemoteData');
-				context.redirect('#loading/');
-			}
-			 
-		
+				
+				$('#txt_username').val(store.get('username'));
+				$('#txt_password').val(store.get('password'));
+				$('#txt_token').val(store.get('token'));
+				
+			context.redirect('#login/');
+		 
 		});
 		
 	});
