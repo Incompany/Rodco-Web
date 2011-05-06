@@ -1,0 +1,13 @@
+<li class="producto">
+	<h4> <%= item.Name %> </h4>
+	<h5> <%= item.Precio %> </h5>
+	<input data-id="<%= item.Id %>" data-type="cantidad" onchange="onItemChange(event)" value="<%= item.Cantidad %>" class="selectionBox" cols="6" size="6" title="#"/>
+	<input data-id="<%= item.Id %>" data-type="descuento" onchange="onItemChange(event)" value="<%= item.Descuento %>" class="selectionBox" cols="3" size="3" title="#"/><h6>%</h6>
+	<a href="#" onclick="onItemShowInfoClick(event);return false;">+</a>
+	<div class="details">
+		<h6>Es un Pedido</h6><input name="" type="checkbox" <%= item.Pedido %> onchange="onItemChange(event)" data-id="<%= item.Id %>" data-type="pedido" />
+		<h6>Exceso es Oportunidad</h6><input name="" type="checkbox" data-id="<%= item.Id %>" onchange="onItemChange(event)" data-type="oportunidad"  <%= item.Oportunidad %>  />
+		<textarea  data-id="<%= item.Id %>" data-type="observacion"  class="itemDetail" title="Ingrese una observacion" onchange="onItemChange(event)" cols="35" rows="1" title="Escriba la Observacion"><%= item.Observacion %></textarea>
+	</div>
+</li>
+

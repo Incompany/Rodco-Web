@@ -65,8 +65,9 @@ a img {
   width: 100px;
   border-bottom: 4px #a82d2d solid;
   text-align: center;
+  cursor: pointer;
 }
-/* line 7, ../../sass/_buttons.sass */
+/* line 8, ../../sass/_buttons.sass */
 .button a {
   padding-left: 8px;
   padding-top: 7px;
@@ -77,11 +78,11 @@ a img {
   display: block;
   text-decoration: none;
 }
-/* line 16, ../../sass/_buttons.sass */
+/* line 17, ../../sass/_buttons.sass */
 .button.right {
   float: right;
 }
-/* line 18, ../../sass/_buttons.sass */
+/* line 19, ../../sass/_buttons.sass */
 .button.margin {
   margin-right: 10px;
 }
@@ -234,6 +235,13 @@ textarea {
 /* line 48, ../../sass/_forms.sass */
 .selectionBox {
   height: 18px;
+}
+
+/* line 51, ../../sass/_forms.sass */
+.itemDetail {
+  height: 25px;
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 /* line 4, ../../sass/modules/_nav.sass */
@@ -592,7 +600,7 @@ textarea {
   float: left;
   margin-left: 10px;
   margin-right: 10px;
-  width: 295px;
+  width: 260px;
   font-size: 12px;
   color: #18456d;
   margin-top: 8px;
@@ -633,8 +641,34 @@ textarea {
   margin-left: 0;
   margin-right: 0;
 }
+/* line 88, ../../sass/pageDetails/_pedido.sass */
+#selectedProductosList li a {
+  text-decoration: none;
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 36px;
+  font-size: 12px;
+  color: #18456d;
+  margin-top: 8px;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 99, ../../sass/pageDetails/_pedido.sass */
+#selectedProductosList li .details {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: none;
+  overflow: hidden;
+  *zoom: 1;
+}
 
-/* line 90, ../../sass/pageDetails/_pedido.sass */
+/* line 104, ../../sass/pageDetails/_pedido.sass */
 #pedidosList li {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffffff), color-stop(100%, #e9e9ea));
   background-image: -moz-linear-gradient(top, #ffffff 0%, #e9e9ea 100%);
@@ -647,18 +681,18 @@ textarea {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 98, ../../sass/pageDetails/_pedido.sass */
+/* line 112, ../../sass/pageDetails/_pedido.sass */
 #pedidosList li h4 {
   display: inline;
   float: left;
   margin-left: 10px;
   margin-right: 10px;
-  width: 221px;
+  width: 205px;
   font-size: 12px;
   color: #18456d;
   margin-top: 8px;
 }
-/* line 104, ../../sass/pageDetails/_pedido.sass */
+/* line 118, ../../sass/pageDetails/_pedido.sass */
 #pedidosList li h5 {
   display: inline;
   float: left;
@@ -671,7 +705,7 @@ textarea {
   text-align: center;
   font-weight: bold;
 }
-/* line 112, ../../sass/pageDetails/_pedido.sass */
+/* line 126, ../../sass/pageDetails/_pedido.sass */
 #pedidosList li h6 {
   display: inline;
   float: left;
@@ -682,10 +716,8 @@ textarea {
   margin-top: 8px;
   text-align: center;
   font-weight: bold;
-  margin-left: 0;
-  margin-right: 0;
 }
-/* line 121, ../../sass/pageDetails/_pedido.sass */
+/* line 134, ../../sass/pageDetails/_pedido.sass */
 #pedidosList li a {
   display: inline;
   float: left;

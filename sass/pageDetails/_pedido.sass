@@ -60,7 +60,7 @@
 		+clearfix
 		h4
 			+grid-unit-base 
-			+grid-width(5,15px)
+			+grid-width(5,-20px)
 			font-size: 12px
 			color: $blue
 			margin-top: 8px
@@ -85,7 +85,21 @@
 			font-weight: bold
 			+alpha
 			+omega
-			
+		a
+			text-decoration: none
+			+grid-unit-base 
+			+grid-width(1,-4px)
+			font-size: 12px
+			color: $blue
+			margin-top: 8px
+			text-align: center
+			font-weight: bold
+			+alpha
+			+omega
+		.details
+			+grid-unit-base 
+			display: none
+			+clearfix
 #pedidosList
 	li
 		+linear-gradient(color-stops(#FFFFFF, #E9E9EA))
@@ -97,7 +111,7 @@
 		+clearfix
 		h4
 			+grid-unit-base 
-			+grid-width(4,1px)
+			+grid-width(4,-15px)
 			font-size: 12px
 			color: $blue
 			margin-top: 8px
@@ -116,8 +130,7 @@
 			margin-top: 8px
 			text-align: center
 			font-weight: bold
-			+alpha
-			+omega
+
 		a
 			+grid-unit-base 
 			+grid-width(2,1px)

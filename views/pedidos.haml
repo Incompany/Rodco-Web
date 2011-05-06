@@ -1,6 +1,7 @@
 .contentBox
 
 	#login
+		%img{:src=>"/images/ajax-loader.gif",:align =>"left"}
 		.title Envie sus Pedidos En Linea
 		.info 
 			%a{:href=>"/contacto"} Contactenos para solicitar su clave
@@ -13,7 +14,7 @@
  
 		.contentFooter
 			.button
-				%a{:href=>"#doLogin/",:id=>"btn_login"} Login
+				%a{:id=>"btn_login",:onclick=>"btnLogin_handleClick();"} Login
 	#loading
 		%img{:src=>"/images/ajax-loader.gif",:align =>"left"}
 		%h2.title Actualizando el Sistema
@@ -25,6 +26,17 @@
 		%input{:value=>"",:onchange=>"doSearchClientes()",:id=>"txt_searchCliente",:type=>"text",:title=>"escriba el nombre"}
 		%ul#clientesList
 
+	#doOpp
+		%h2.title Crear Oportunidad
+		.info Incluya todos los detalles que considere importantes
+		%input{:value=>"",:id=>"txt_oppObservacion",:type=>"text",:title=>"Observaciones",:size=>"20"}
+		.contentFooter
+			#totalPlaceHolder
+			#btnSave.button.right
+				%a{:href=>"#opp_save/"} Guardar
+			#btnRestart.button.right.margin
+				%a{:href=>"#pedido_show/"} Cancelar
+	
 	#doPedido
 		%h2.title
 		.info Sistema de ingreso de pedidos, escoja el producto, ingrese la cantidad y de click en el nombre.
@@ -59,8 +71,10 @@
 			.button.right
 				%a{:href=>"#pedido_send/"} Enviar
 			.button.right.margin
-				%a{:href=>"#pedido_new/"} Crear
+				%a{:href=>"#pedido_new/"} Pedido
+			.button.right.margin
+				%a{:href=>"#pedido_new/"} Opportunidad
 
--['sammy', 'sammy.json', 'sammy.storage', 'sammy.template','pedidos'].each do |js|
+-['sammy', 'sammy.json', 'sammy.storage', 'sammy.template','/pedido/view','/pedido/app'].each do |js|
 	%script{:src => "/js/#{js}.js", :type => 'text/javascript', :charset => 'utf-8'}
 		
