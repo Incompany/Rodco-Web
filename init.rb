@@ -61,7 +61,7 @@ get '/login' do
   session['secure'] = secure;
 
   binding = RForce::Binding.new \
-      'https://test.salesforce.com/services/Soap/u/21.0'
+      'https://salesforce.com/services/Soap/u/21.0'
   
   begin
     binding.login email, secure
@@ -78,7 +78,7 @@ get '/getdata' do
   secure = session['secure']
   
    binding = RForce::Binding.new \
-      'https://test.salesforce.com/services/Soap/u/21.0'
+      'https://salesforce.com/services/Soap/u/21.0'
       
     binding.login \
       email, secure
@@ -118,7 +118,7 @@ post '/saveOpportunities' do
    oportunidades = params['oportunidades']
    
     binding = RForce::Binding.new \
-        'https://test.salesforce.com/services/Soap/u/21.0'
+        'https://salesforce.com/services/Soap/u/21.0'
 
       binding.login \
         email, secure
